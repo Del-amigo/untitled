@@ -1,0 +1,31 @@
+package CodeWars;
+
+public class DetectPangram {
+    /*
+    A pangram is a sentence that contains every single letter of the alphabet at least once. For example,
+     the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters
+     A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+     */
+    public static void main(String[] args) {
+        System.out.println(check("The quick brown fox jumps over the lazy dog"));
+    }
+
+    public static boolean check(String sentence) {
+
+        int index = 0;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            for (int j = 0; j < sentence.length() - 1; j++) {
+                if (sentence.charAt(i) == sentence.charAt(j)) {
+                    index++;
+                }
+            }
+            if (index >= 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
